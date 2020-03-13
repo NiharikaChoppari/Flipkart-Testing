@@ -1,19 +1,11 @@
-package com.flipkart.login;
+package com.flipkart.loginModule;
 
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.flipkart.basepage.BasePage;
+import com.flipkart.Basepage.BasePage;
 
 public class LoginPage extends BasePage {
 	
@@ -44,21 +36,23 @@ public class LoginPage extends BasePage {
 
 	}
 
-	public boolean errorMessageDisplayed() {
-
-		boolean msgValue = d.findElement(By.xpath("//span[@class='ZAtlA-']")).isDisplayed();
+	public boolean errorMessageDisplayed() throws InterruptedException {
+		
+		Thread.sleep(2000);
+		boolean msgValue = d.findElement(By.xpath("//span[@class='ZAtlA-']/span")).isDisplayed();
 		return msgValue;
 	}
 
-	public String errorMessageContent() {
-
-		String msgValueContenent = d.findElement(By.xpath("//span[@class='ZAtlA-']")).getText();
+	public String errorMessageContent() throws InterruptedException {
+		
+		Thread.sleep(2000);
+		String msgValueContenent = d.findElement(By.xpath("//span[@class='ZAtlA-']/span")).getText();
 		return msgValueContenent;
 	}
 
 	public boolean enterPasswordMsg() {
 
-		boolean pwdmsg = d.findElement(By.xpath("//span[@class='ZAtlA-']")).isDisplayed();
+		boolean pwdmsg = d.findElement(By.xpath("//span[@class='ZAtlA-']/span")).isDisplayed();
 		return pwdmsg;
 	}
 
@@ -68,10 +62,23 @@ public class LoginPage extends BasePage {
 		return homepage;
 	}
 
-	public void refresh() {
-		d.navigate().refresh();
+	public void clear(String field){
+		
+		WebElement username=d.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div[2]/div/form/div[1]/input"));
+		WebElement password=d.findElement(By.xpath("/html/body/div[2]/div/div/div/div/div[2]/div/form/div[2]/input"));
+		
+		
+		if(field=="username")
+		{
+			username.sendKeys(Keys.CONTROL,"a");
+			username.sendKeys(Keys.DELETE);	
+		}
+		password.sendKeys(Keys.CONTROL,"a");
+		password.sendKeys(Keys.DELETE);	
+		
+			
 	}
-
+	
 	public void logout() throws InterruptedException {
 
 		Thread.sleep(2000);
@@ -83,9 +90,15 @@ public class LoginPage extends BasePage {
 				.click();
 
 	}
-
+	
+	
 	public void closeBrowser() {
 		d.close();
+		
+	}
+	
+	public void deleteCookies(){
+		d.manage().deleteAllCookies();
 	}
 
 }
