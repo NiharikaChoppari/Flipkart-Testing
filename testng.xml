@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"> 
+<suite name="Suite" parallel="false">
+  <test name="Test">
+  
+  
+	<parameter name="invalidUn" value="986682599"/>
+  	<parameter name="invalidPwd" value="Cn01234567"/>
+  	<parameter name="validUn" value="9866825999"/>
+  	<parameter name="validPwd" value="Cn012345678"/>
+  	<parameter name="product" value="Pears soft and fresh  (4 x 125 g)"/>
+  
+  <classes>
+ 	<!--  <class name="com.flipkart.loginModule.LoginTest"/> -->
+	<class name="com.flipkart.loginModule.AddToWishlistTest"/> 		
+ <!-- <class name="com.flipkart.loginModule.AddToCartTest"/> -->  
+	
+ </classes> 
+ 
+ 
+  
+  </test> <!-- Test -->  
+</suite> <!-- Suite -->  
