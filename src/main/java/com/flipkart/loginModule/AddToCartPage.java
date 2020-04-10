@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.flipkart.Basepage.BasePage;
 
@@ -59,8 +61,10 @@ public class AddToCartPage extends BasePage {
 	
 	public boolean myAccountDisplayed() {
 
-		d.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		boolean myAcountDisplay = myAccount.isDisplayed();
+		WebDriverWait wait = new WebDriverWait(d, 20);
+		WebElement element = wait
+				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='_2aUbKa']")));
+		boolean myAcountDisplay = element.isDisplayed();
 				//d.findElement(By.xpath("//div[@class='_2aUbKa']")).isDisplayed();
 		return myAcountDisplay;
 	}

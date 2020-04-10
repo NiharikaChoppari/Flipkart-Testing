@@ -80,11 +80,13 @@ public class AddToWishlistTest {
 		page3.clickOnWishlistBtn();
 		System.out.println("Product added to wishlist succesfully");
 		Assert.assertTrue(page3.wishistSelected(), "Wishlist btn is not selected");
-
+		System.out.println("--------------------------");
 	}
 
+	
 	@Test(priority = 10)
 	public void verifyRemoveFromWishlist() {
+		System.out.println("**********************");
 		page3.clickOnwishlistOption();
 		page3.removeFromWishlist();
 	}
