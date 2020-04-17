@@ -12,8 +12,7 @@ public class AddToWishlistTest {
 	LogoutPage page1 = new LogoutPage();
 	AddToCartPage page2 = new AddToCartPage();
 
-
-	@Test(priority = 1)
+	@Test(priority = 1, enabled = false)
 	public void verifyUrl() {
 
 		page.enterurl();
@@ -22,7 +21,7 @@ public class AddToWishlistTest {
 
 	@Test(priority = 2)
 	@Parameters({ "validUn", "validPwd" })
-	public void validlogin(String validUn, String validPwd) throws InterruptedException {
+	public void validlogin(String validUn, String validPwd) {
 
 		page.enterun(validUn);
 		page.enterpwd(validPwd);
@@ -34,7 +33,7 @@ public class AddToWishlistTest {
 	}
 
 	@Test(priority = 3)
-	public void verifyMyAccountDisplayed() {
+	public void verifyMyAccountDisplayed() throws InterruptedException {
 		Assert.assertTrue(page2.myAccountDisplayed(), "My Account not displayed");
 		System.out.println("My account option is displayed");
 	}
@@ -76,38 +75,41 @@ public class AddToWishlistTest {
 	}
 
 	@Test(priority = 9)
-	public void verifyclickingWishlistBtn() {
+	public void verifyclickingWishlistButtotn() {
 		page3.clickOnWishlistBtn();
 		System.out.println("Product added to wishlist succesfully");
 		Assert.assertTrue(page3.wishistSelected(), "Wishlist btn is not selected");
-		System.out.println("--------------------------");
+
 	}
 
-	
 	@Test(priority = 10)
 	public void verifyRemoveFromWishlist() {
-		System.out.println("**********************");
+
 		page3.clickOnwishlistOption();
+		Assert.assertTrue(page3.wishlistPageDisplayed(), "Wishlist page is not displayed");
+		Assert.assertTrue(page3.removeButtonDisplayed(), "Remove button is not displayed");
 		page3.removeFromWishlist();
 	}
-	@Test(priority=11)
-	public void verifyEmptyWishlist(){
-		page3.emptyWishlist();
-		System.out.println("product removed from the wishlist successfully!");
+
+	@Test(priority = 11)
+	public void verifyEmptyWishlist() {
+		Assert.assertTrue(page3.emptyWishlist(), "Search box not displayed");
+
 	}
-	@Test(priority=12)
-	public void verifylogout() {
+
+	@Test(priority = 12)
+	public void verifylogout() throws InterruptedException {
 		try {
 			page1.logout();
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		Assert.assertTrue(page1.loginbtn(), "Logout failed");
+		Assert.assertTrue(page1.loginButtonDisplayed(), "Logout failed");
 		System.out.println("Logout Successful!!!");
+		Thread.sleep(1000);
 	}
 
-	
-	@Test(priority=13)
+	@Test(priority = 13, enabled = false)
 	public void verifyCloseBrowser() {
 		page1.closeBrowser();
 		System.out.println("Browser closed successfully!!!");

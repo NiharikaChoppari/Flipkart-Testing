@@ -9,10 +9,9 @@ public class AddToCartTest {
 	AddToCartPage page2 = new AddToCartPage();
 
 	LoginPage page = new LoginPage();
-	LogoutPage page1=new LogoutPage();
-	
+	LogoutPage page1 = new LogoutPage();
 
-	@Test(priority = 1)
+	@Test(priority = 1, enabled = false)
 	public void verifyUrl() {
 
 		page.enterurl();
@@ -33,7 +32,7 @@ public class AddToCartTest {
 	}
 
 	@Test(priority = 3)
-	public void verifyMyAccountDisplayed() {
+	public void verifyMyAccountDisplayed() throws InterruptedException {
 		Assert.assertTrue(page2.myAccountDisplayed(), "My Account not displayed");
 		System.out.println("My account option is displayed");
 	}
@@ -69,13 +68,11 @@ public class AddToCartTest {
 	@Test(priority = 8)
 	public void verifyProductDisplayed() {
 		page2.togglingWindow();
-		Assert.assertEquals("Test Automation using Selenium WebDriver with Java  (English, Paperback, Garg Navneesh)",
-				page2.productTitle(), "Expected and Actual title did not matched");
-		System.out.println("Title of the book verified");
-		Assert.assertEquals("₹1,099", page2.productPrice(), "Expected and Actual price did not matched");
-		System.out.println("Price of the book is verified");
+		Assert.assertEquals(page2.productTitle, page2.productTitle(), "Expected and Actual title did not matched");
+		System.out.println("Title of the product verified");
+		Assert.assertEquals(page2.productprice, page2.productPrice(), "Expected and Actual price did not matched");
+		System.out.println("Price of the product is verified");
 	}
-	
 
 	@Test(priority = 9)
 	public void verifyAddToCartBtnDisplayed() {
@@ -91,13 +88,14 @@ public class AddToCartTest {
 
 	@Test(priority = 11)
 	public void verifyAddToCart() {
-		
+
 		page2.clickAddToCart();
-		
+
 	}
-	@Test(priority=12)
-	public void verifyRemoveFromCart(){
-		
+
+	@Test(priority = 12)
+	public void verifyRemoveFromCart() throws InterruptedException {
+
 		Assert.assertTrue(page2.removeDisplayed(), "Remove option not available");
 		System.out.println("remove displayed clicked");
 		page2.removeFromCart();
@@ -105,30 +103,24 @@ public class AddToCartTest {
 				"Expected and Actual msg of empty cart did not matched");
 		System.out.println("Product successfully removed from cart!");
 
-		
 	}
-	 @Test(priority=13)
-	public void verifylogout() {
-		try {
-			page1.logout();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		Assert.assertTrue(page1.loginbtn(), "Logout failed");
+
+	@Test(priority = 13)
+	public void verifylogout() throws InterruptedException {
+		page2.logout();
+		Assert.assertTrue(page1.loginButtonDisplayed(), "Logout failed");
 		System.out.println("Login and Logout Successful!!!");
 	}
 
-	
-	 @Test(priority=14)
+	@Test(priority = 14, enabled = false)
 	public void verifyCloseBrowser() {
 		page1.closeBrowser();
 		System.out.println("Browser closed successfully!!!");
 	}
-	
-	@Test(priority=15)
-	public void quit(){
+
+	@Test(priority = 15, enabled = false)
+	public void quit() {
 		page1.quitBrowser();
 	}
-	
 
 }

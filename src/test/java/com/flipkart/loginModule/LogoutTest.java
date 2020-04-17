@@ -3,11 +3,10 @@ package com.flipkart.loginModule;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-
 public class LogoutTest {
-	
-	LogoutPage page1=new LogoutPage();
-	
+
+	LogoutPage page1 = new LogoutPage();
+
 	@Test(priority = 1)
 	public void verifylogout() {
 		try {
@@ -15,19 +14,18 @@ public class LogoutTest {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		Assert.assertTrue(page1.loginbtn(), "Logout failed");
+		Assert.assertTrue(page1.loginButtonDisplayed(), "Logout failed");
 		System.out.println("Login and Logout Successful!!!");
 	}
 
-	
-	@Test(priority=2)
+	@Test(priority = 2)
 	public void verifyCloseBrowser() {
 		page1.closeBrowser();
 		System.out.println("Browser closed successfully!!!");
 	}
-	
-	@Test(priority=3)
-	public void quit(){
+
+	@Test(priority = 3)
+	public void quit() {
 		page1.quitBrowser();
 	}
 }

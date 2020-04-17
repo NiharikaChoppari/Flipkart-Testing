@@ -9,9 +9,8 @@ public class LoginTest
 {
 
 	LoginPage page = new LoginPage();
-	LogoutPage page1=new LogoutPage();
-	
-	
+	LogoutPage page1 = new LogoutPage();
+
 	@Test(priority = 1)
 	public void verifyUrl() {
 
@@ -19,10 +18,10 @@ public class LoginTest
 		Assert.assertTrue(page.logindisplayed(), "url is entered and login page displayed");
 
 	}
-	
-	@Test(priority = 4)
+
+	@Test(priority = 2)
 	@Parameters({ "validUn" })
-	public void verifyLoginWithOnlyUn(String validUn) throws InterruptedException {
+	public void verifyLoginWithOnlyUn(String validUn) {
 
 		page.enterun(validUn);
 		page.clickOnLogin();
@@ -30,14 +29,13 @@ public class LoginTest
 		Assert.assertEquals("Please enter Password", page.errorMessageContent(),
 				"Expected and Actual message did not matched");
 		page.clear("username");
-		Thread.sleep(1000);
 		System.out.println("verifyLoginWithOnlyUn execution successfull");
 
 	}
 
-	@Test(priority = 5)
+	@Test(priority = 3)
 	@Parameters({ "validPwd" })
-	public void verifyLoginWithOnlyPwd(String validPwd) throws InterruptedException {
+	public void verifyLoginWithOnlyPwd(String validPwd) {
 
 		page.enterpwd(validPwd);
 		page.clickOnLogin();
@@ -45,13 +43,12 @@ public class LoginTest
 		Assert.assertEquals("Please enter valid Email ID/Mobile number", page.errorMessageContent(),
 				"Expected and Actual message did not matched");
 		page.clear("password");
-		Thread.sleep(1000);
 		System.out.println("verifyLoginWithOnlyPwd execution successfull");
 	}
 
-	@Test(priority = 6)
+	@Test(priority = 4)
 	@Parameters({ "invalidUn", "validPwd" })
-	public void invalidUnandValidPwd(String invalidUn, String validPwd) throws InterruptedException {
+	public void invalidUnandValidPwd(String invalidUn, String validPwd) {
 
 		page.enterun(invalidUn);
 		page.enterpwd(validPwd);
@@ -61,14 +58,13 @@ public class LoginTest
 				"Expected and Actual message did not matched");
 		page.clear("username");
 		page.clear("password");
-		Thread.sleep(1000);
 		System.out.println("invalidUnandValidPwd execution successfull");
 
 	}
 
-	@Test(priority = 7)
+	@Test(priority = 5)
 	@Parameters({ "validUn", "invalidPwd" })
-	public void validUnandInvalidPwd(String validUn, String invalidPwd) throws InterruptedException {
+	public void validUnandInvalidPwd(String validUn, String invalidPwd) {
 
 		page.enterun(validUn);
 		page.enterpwd(invalidPwd);
@@ -78,14 +74,13 @@ public class LoginTest
 				"Expected and Actual message did not matched");
 		page.clear("username");
 		page.clear("password");
-		Thread.sleep(1000);
 		System.out.println("validUnandInvalidPwd execution successfull");
 
 	}
 
-	@Test(priority =8 )
+	@Test(priority = 6)
 	@Parameters({ "invalidUn", "invalidPwd" })
-	public void invalidUnandInvalidPwd(String invalidUn, String invalidPwd) throws InterruptedException {
+	public void invalidUnandInvalidPwd(String invalidUn, String invalidPwd) {
 
 		page.enterun(invalidUn);
 		page.enterpwd(invalidPwd);
@@ -95,12 +90,11 @@ public class LoginTest
 				"Expected and Actual message did not matched");
 		page.clear("username");
 		page.clear("password");
-		Thread.sleep(1000);
 		System.out.println("invalidUnandInvalidPwd execution successfull");
 
 	}
 
-    @Test(priority = 2)
+	@Test(priority = 7)
 	@Parameters({ "validUn", "validPwd" })
 	public void validlogin(String validUn, String validPwd) throws InterruptedException {
 
@@ -112,22 +106,18 @@ public class LoginTest
 		System.out.println("validlogin execution successfull");
 
 	}
-    @Test(priority = 3)
-	public void verifylogout() {
-		try {
-			page1.logout();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		Assert.assertTrue(page1.loginbtn(), "Logout failed");
+
+	@Test(priority = 8)
+	public void verifylogout() throws InterruptedException {
+		page1.logout();
+		Assert.assertTrue(page1.loginButtonDisplayed(), "Logout failed");
 		System.out.println("Login and Logout Successful!!!");
 	}
 
-	
-	/*@Test(priority=9)
+	@Test(priority = 9, enabled = false)
 	public void verifyCloseBrowser() {
 		page1.closeBrowser();
 		System.out.println("Browser closed successfully!!!");
-	}*/
+	}
 
 }
