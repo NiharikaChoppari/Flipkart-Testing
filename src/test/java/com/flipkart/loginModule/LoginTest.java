@@ -1,7 +1,7 @@
 package com.flipkart.loginModule;
 
 import org.testng.Assert;
-
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
@@ -17,7 +17,7 @@ public class LoginTest
 
 	LoginPage page = new LoginPage();
 	LogoutPage page1 = new LogoutPage();
-
+	
 	@Test(priority = 1)
 	public void verifyUrl() {
 
