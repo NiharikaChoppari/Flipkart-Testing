@@ -10,8 +10,8 @@ import com.flipkart.Basepage.BasePage;
 
 public class AddToCartPage extends BasePage {
 
-	String productTitle = "DERMEASE with 100% Gauranteed Germ Free Hand Pack Of 2 Hand Sanitizer Pump Dispenser  (2 x 225 ml)";
-	String productprice = "₹224";
+	String productTitle = "A Practitioner's Guide to Test Automation Using SELENIUM  (English, Paperback, Garg Aditya)";
+	String productprice = "₹416";
 
 	@FindBy(xpath = "//div[@class='_2aUbKa']")
 	WebElement myAccount;
@@ -28,7 +28,7 @@ public class AddToCartPage extends BasePage {
 	@FindBy(xpath = "//span[@class='ZAtlA-']/span")
 	WebElement errormsg;
 
-	@FindBy(xpath = "//img[@class='_1Nyybr  _30XEf0']")
+	@FindBy(xpath = "//div[@class='_3BTv9X']/img[@class='_1Nyybr  _30XEf0']")
 	WebElement product;
 
 	@FindBy(xpath = "//span[@class='_35KyD6']")
@@ -59,9 +59,7 @@ public class AddToCartPage extends BasePage {
 		PageFactory.initElements(d, this);
 	}
 
-	public boolean myAccountDisplayed() throws InterruptedException {
-
-		Thread.sleep(1000);
+	public boolean myAccountDisplayed() {
 		boolean myAcountDisplay = myAccount.isDisplayed();
 		return myAcountDisplay;
 	}
@@ -89,7 +87,8 @@ public class AddToCartPage extends BasePage {
 		searchButton.click();
 	}
 
-	public boolean productDisplayed() {
+	public boolean productDisplayed() throws InterruptedException {
+		Thread.sleep(1000);
 		boolean productDisplay = product.isDisplayed();
 		return productDisplay;
 	}
@@ -98,7 +97,7 @@ public class AddToCartPage extends BasePage {
 
 		String homePageWindow = d.getWindowHandle();
 
-		product = d.findElement(By.xpath("//img[@class='_1Nyybr  _30XEf0']"));
+		product = d.findElement(By.xpath("//div[@class='_3BTv9X']/img[@class='_1Nyybr  _30XEf0']"));
 		product.click();
 		Set<String> allWindows = d.getWindowHandles();
 		for (String productWindow : allWindows) {
@@ -142,14 +141,15 @@ public class AddToCartPage extends BasePage {
 
 	}
 
-	public void removeFromCart() {
-
+	public void removeFromCart() throws InterruptedException {
+		
+		Thread.sleep(1000);
 		remove.click();
 		removeConfirmation.click();
 	}
 
 	public String cartMsg() throws InterruptedException {
-
+		Thread.sleep(1000);
 		String msg = cartMsg.getText();
 		return msg;
 	}

@@ -3,6 +3,8 @@ package com.flipkart.loginModule;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.flipkart.loginModule.LogoutPage;
+
 public class LogoutTest {
 
 	LogoutPage page1 = new LogoutPage();

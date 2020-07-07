@@ -1,8 +1,15 @@
 package com.flipkart.loginModule;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import com.flipkart.Basepage.ListenerClass;
+import com.flipkart.loginModule.AddToCartPage;
+import com.flipkart.loginModule.LoginPage;
+import com.flipkart.loginModule.LogoutPage;
+@Listeners(ListenerClass.class)
 
 public class AddToCartTest {
 
@@ -11,7 +18,7 @@ public class AddToCartTest {
 	LoginPage page = new LoginPage();
 	LogoutPage page1 = new LogoutPage();
 
-	@Test(priority = 1, enabled = false)
+	@Test(priority = 1)
 	public void verifyUrl() {
 
 		page.enterurl();
@@ -21,7 +28,7 @@ public class AddToCartTest {
 	@Test(priority = 2)
 	@Parameters({ "validUn", "validPwd" })
 	public void validlogin(String validUn, String validPwd) throws InterruptedException {
-
+		Thread.sleep(1000);
 		page.enterun(validUn);
 		page.enterpwd(validPwd);
 		page.clickOnLogin();
@@ -58,10 +65,14 @@ public class AddToCartTest {
 
 	@Test(priority = 7)
 	@Parameters({ "product" })
-	public void verifyProductSearch(String product) {
+	public void verifyProductSearch(String product) throws InterruptedException {
 		page2.enterProductName(product);
+		System.out.println("Product name entered");
 		page2.clickOnSearchBtn();
+		Thread.sleep(2000);
+		System.out.println(page2.productDisplayed());
 		Assert.assertTrue(page2.productDisplayed(), "Product not displayed");
+		System.out.println("Product displayed");
 
 	}
 
@@ -95,7 +106,7 @@ public class AddToCartTest {
 
 	@Test(priority = 12)
 	public void verifyRemoveFromCart() throws InterruptedException {
-
+		Thread.sleep(1000);
 		Assert.assertTrue(page2.removeDisplayed(), "Remove option not available");
 		System.out.println("remove displayed clicked");
 		page2.removeFromCart();
@@ -108,17 +119,18 @@ public class AddToCartTest {
 	@Test(priority = 13)
 	public void verifylogout() throws InterruptedException {
 		page2.logout();
+		Thread.sleep(1000);
 		Assert.assertTrue(page1.loginButtonDisplayed(), "Logout failed");
 		System.out.println("Login and Logout Successful!!!");
 	}
 
-	@Test(priority = 14, enabled = false)
+	@Test(priority = 14)
 	public void verifyCloseBrowser() {
 		page1.closeBrowser();
 		System.out.println("Browser closed successfully!!!");
 	}
 
-	@Test(priority = 15, enabled = false)
+	@Test(priority = 15)
 	public void quit() {
 		page1.quitBrowser();
 	}

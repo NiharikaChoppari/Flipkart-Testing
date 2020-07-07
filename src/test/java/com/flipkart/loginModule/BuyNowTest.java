@@ -1,29 +1,28 @@
 package com.flipkart.loginModule;
 
+import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+import com.flipkart.loginModule.AddToCartPage;
+import com.flipkart.loginModule.BuyNowPage;
+import com.flipkart.loginModule.LoginPage;
+import com.flipkart.loginModule.LogoutPage;
 
 public class BuyNowTest {
+	
 	BuyNowPage page4 = new BuyNowPage();
 
 	LoginPage page = new LoginPage();
 	LogoutPage page1 = new LogoutPage();
 	AddToCartPage page2 = new AddToCartPage();
 
-	@Test(priority = 1, enabled = false)
+	@Test(priority = 1)
 	public void verifyUrl() {
 
 		page.enterurl();
 		Assert.assertTrue(page.logindisplayed(), "url is entered and login page displayed");
 	}
-
-	@Test(priority = 3)
-	public void verifyMyAccountDiplayed() throws InterruptedException {
-		Assert.assertTrue(page2.myAccountDisplayed(), "My Account not displayed");
-		System.out.println("My account option is displayed");
-	}
-
 	@Test(priority = 2)
 	@Parameters({ "validUn", "validPwd" })
 	public void validlogin(String validUn, String validPwd) throws InterruptedException {
@@ -37,8 +36,14 @@ public class BuyNowTest {
 		System.out.println("validlogin  successfull");
 
 	}
+	
+	@Test(priority = 3)
+	public void verifyMyAccountDiplayed() throws InterruptedException {
+		Assert.assertTrue(page2.myAccountDisplayed(), "My Account not displayed");
+		System.out.println("My account option is displayed");
+	}
 
-	@Test(priority = 3, enabled = false)
+	@Test(priority = 4, enabled = false)
 	public void verifySearchBoxAvailability() {
 
 		Assert.assertTrue(page2.searchBoxDisplayed(), "Search box not displayed");
@@ -59,10 +64,14 @@ public class BuyNowTest {
 
 	@Test(priority = 6)
 	@Parameters({ "product" })
-	public void verifyProductSearch(String product) {
+	public void verifyProductSearch(String product) throws InterruptedException {
 		page2.enterProductName(product);
+		System.out.println("Product name entered");
 		page2.clickOnSearchBtn();
+		Thread.sleep(2000);
+		System.out.println(page2.productDisplayed());
 		Assert.assertTrue(page2.productDisplayed(), "Product not displayed");
+		System.out.println("Product displayed");
 
 	}
 
@@ -83,20 +92,25 @@ public class BuyNowTest {
 	}
 
 	@Test(priority = 9)
-	public void verifyProductDisplay() {
+	public void verifyProductDisplay() throws InterruptedException {
+		Thread.sleep(2000);
+		System.out.println();
 		Assert.assertTrue(page4.productDisplayed(), "Product not displayed");
 		System.out.println("Product displayed");
 	}
 
 	@Test(priority = 10)
-	public void verifyProductprice() {
+	public void verifyProductprice() throws IOException {
 		Assert.assertTrue(page4.priceDisplayed(), "Expected and Actual price did not matched");
 		System.out.println("Product price displayed");
+		 page4.screenshot();
+		 System.out.println("Screenshot taken successfully!!");
 	}
 
 	@Test(priority = 11)
-	public void removeProduct() {
+	public void removeProduct() throws InterruptedException {
 		page4.clickOnRemove();
+		Thread.sleep(1000);
 		Assert.assertTrue(page4.goToCartDisplayed(), "Expected and Actual price did not matched");
 		page4.clickOnGoToCart();
 	}
@@ -116,6 +130,7 @@ public class BuyNowTest {
 	@Test(priority = 13)
 	public void verifylogout() throws InterruptedException {
 		page2.logout();
+		Thread.sleep(1000);
 		Assert.assertTrue(page1.loginButtonDisplayed(), "Logout failed");
 		System.out.println("Login and Logout Successful!!!");
 	}

@@ -1,8 +1,15 @@
 package com.flipkart.loginModule;
 
 import org.testng.Assert;
+
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
+
+import com.flipkart.Basepage.ListenerClass;
+import com.flipkart.loginModule.LoginPage;
+import com.flipkart.loginModule.LogoutPage;
+@Listeners(ListenerClass.class)
 
 public class LoginTest
 
@@ -21,7 +28,7 @@ public class LoginTest
 
 	@Test(priority = 2)
 	@Parameters({ "validUn" })
-	public void verifyLoginWithOnlyUn(String validUn) {
+	public void verifyLoginWithOnlyUn(String validUn){
 
 		page.enterun(validUn);
 		page.clickOnLogin();
@@ -48,7 +55,7 @@ public class LoginTest
 
 	@Test(priority = 4)
 	@Parameters({ "invalidUn", "validPwd" })
-	public void invalidUnandValidPwd(String invalidUn, String validPwd) {
+	public void invalidUnandValidPwd(String invalidUn, String validPwd){
 
 		page.enterun(invalidUn);
 		page.enterpwd(validPwd);
@@ -64,11 +71,12 @@ public class LoginTest
 
 	@Test(priority = 5)
 	@Parameters({ "validUn", "invalidPwd" })
-	public void validUnandInvalidPwd(String validUn, String invalidPwd) {
+	public void validUnandInvalidPwd(String validUn, String invalidPwd) throws InterruptedException{
 
 		page.enterun(validUn);
 		page.enterpwd(invalidPwd);
 		page.clickOnLogin();
+		Thread.sleep(1000);
 		Assert.assertTrue(page.errorMessageDisplayed(), "Error message not displayed");
 		Assert.assertEquals("Your username or password is incorrect", page.errorMessageContent(),
 				"Expected and Actual message did not matched");
@@ -80,7 +88,7 @@ public class LoginTest
 
 	@Test(priority = 6)
 	@Parameters({ "invalidUn", "invalidPwd" })
-	public void invalidUnandInvalidPwd(String invalidUn, String invalidPwd) {
+	public void invalidUnandInvalidPwd(String invalidUn, String invalidPwd){
 
 		page.enterun(invalidUn);
 		page.enterpwd(invalidPwd);
@@ -96,7 +104,7 @@ public class LoginTest
 
 	@Test(priority = 7)
 	@Parameters({ "validUn", "validPwd" })
-	public void validlogin(String validUn, String validPwd) throws InterruptedException {
+	public void validlogin(String validUn, String validPwd) {
 
 		page.enterun(validUn);
 		page.enterpwd(validPwd);
@@ -110,11 +118,12 @@ public class LoginTest
 	@Test(priority = 8)
 	public void verifylogout() throws InterruptedException {
 		page1.logout();
+		Thread.sleep(1000);
 		Assert.assertTrue(page1.loginButtonDisplayed(), "Logout failed");
 		System.out.println("Login and Logout Successful!!!");
 	}
 
-	@Test(priority = 9, enabled = false)
+	@Test(priority = 9)
 	public void verifyCloseBrowser() {
 		page1.closeBrowser();
 		System.out.println("Browser closed successfully!!!");

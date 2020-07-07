@@ -7,6 +7,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.Parameters;
 
 import com.flipkart.Basepage.BasePage;
 
@@ -29,8 +30,10 @@ public class LoginPage extends BasePage {
 
 	@FindBy(xpath = "//div[@class='_2aUbKa']")
 	WebElement homepage;
-
+	
+	@Parameters({ "browser" })
 	public LoginPage() {
+		super("browser");
 		PageFactory.initElements(d, this);
 	}
 
@@ -61,7 +64,6 @@ public class LoginPage extends BasePage {
 	}
 
 	public void enterun(String un) {
-
 		username.sendKeys(un);
 	}
 
