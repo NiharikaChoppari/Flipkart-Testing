@@ -1,6 +1,10 @@
 package com.flipkart.test;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
+<<<<<<< HEAD:src/test/java/com/flipkart/test/LoginTest.java
+=======
+import org.testng.annotations.Listeners;
+>>>>>>> 5cdd365099376cbb27268492ba3727a7307797d2:src/test/java/com/flipkart/loginModule/LoginTest.java
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -10,6 +14,7 @@ import com.flipkart.pages.LogoutPage;
 
 public class LoginTest
 {
+<<<<<<< HEAD:src/test/java/com/flipkart/test/LoginTest.java
 		
 	LoginPage page;
 	LogoutPage page1;
@@ -20,6 +25,11 @@ public class LoginTest
 		page = new LoginPage();
 		page1 = new LogoutPage();
 	}
+=======
+
+	LoginPage page = new LoginPage();
+	LogoutPage page1 = new LogoutPage();
+>>>>>>> 5cdd365099376cbb27268492ba3727a7307797d2:src/test/java/com/flipkart/loginModule/LoginTest.java
 	
 	@Test(priority = 1)
 	public void verifyUrl(){
