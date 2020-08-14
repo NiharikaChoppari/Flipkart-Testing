@@ -10,8 +10,8 @@ import com.flipkart.Basepage.BasePage;
 
 public class AddToCartPage extends BasePage {
 
-	 String productTitle = "Experiences of Test Automation  (English, Paperback, Graham Dorothy)";
-	 String productprice = "₹591";
+	public String productTitle = "Experiences of Test Automation  (English, Paperback, Graham Dorothy)";
+	public String productprice = "₹591";
 
 	@FindBy(xpath = "//div[@class='_2aUbKa']")
 	WebElement myAccount;
