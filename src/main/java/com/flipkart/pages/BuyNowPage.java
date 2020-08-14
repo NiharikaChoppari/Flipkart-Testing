@@ -1,7 +1,4 @@
-package com.flipkart.loginModule;
-
-
-
+package com.flipkart.pages;
 import java.io.File;
 
 
@@ -41,6 +38,7 @@ public class BuyNowPage extends BasePage {
 	WebElement goToCart;
 
 	public BuyNowPage() {
+		super();
 		PageFactory.initElements(d, this);
 
 	}
@@ -85,20 +83,5 @@ public class BuyNowPage extends BasePage {
 	public void clickOnGoToCart() {
 		goToCart.click();
 	}
-	
-public void screenshot() throws  IOException{
-		
-		//if(ITestResult.FAILURE==result.getStatus()){
-		
-		TakesScreenshot sc=(TakesScreenshot)d;
-		File f1=sc.getScreenshotAs(OutputType.FILE);
-	
-		//FileHandler.copy(f1,new File(("./Screenshots/screenshots.jpg"));
-		FileUtils.copyFile(f1, new File("./Screenshots/ResultScreenshot.jpg"));
-		
-	//}
-	}
-	
-
 	
 }

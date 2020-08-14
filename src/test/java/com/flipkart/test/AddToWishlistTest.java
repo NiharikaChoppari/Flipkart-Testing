@@ -1,23 +1,29 @@
-package com.flipkart.loginModule;
-
+package com.flipkart.test;
 import org.testng.Assert;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.flipkart.Basepage.ListenerClass;
-import com.flipkart.loginModule.AddToCartPage;
-import com.flipkart.loginModule.AddToWishlistPage;
-import com.flipkart.loginModule.LoginPage;
-import com.flipkart.loginModule.LogoutPage;
-@Listeners(ListenerClass.class)
+import com.flipkart.pages.AddToCartPage;
+import com.flipkart.pages.AddToWishlistPage;
+import com.flipkart.pages.LoginPage;
+import com.flipkart.pages.LogoutPage;
+
 public class AddToWishlistTest {
 
-	AddToWishlistPage page3 = new AddToWishlistPage();
+	AddToWishlistPage page3;
+	LoginPage page;
+	LogoutPage page1;
+	AddToCartPage page2;
 
-	LoginPage page = new LoginPage();
-	LogoutPage page1 = new LogoutPage();
-	AddToCartPage page2 = new AddToCartPage();
+	@BeforeClass
+	void dependencies() {
+		page3 = new AddToWishlistPage();
+		page = new LoginPage();
+		page1 = new LogoutPage();
+		page2 = new AddToCartPage();
+
+	}
 
 	@Test(priority = 1)
 	public void verifyUrl() {
@@ -33,6 +39,7 @@ public class AddToWishlistTest {
 		page.enterun(validUn);
 		page.enterpwd(validPwd);
 		page.clickOnLogin();
+		Thread.sleep(1000);
 		System.out.println("Home page displayed");
 		Assert.assertTrue(page.homePageDisplayed(), "Home page not displayed");
 		System.out.println("validlogin  successfull");
@@ -41,13 +48,14 @@ public class AddToWishlistTest {
 
 	@Test(priority = 3)
 	public void verifyMyAccountDisplayed() throws InterruptedException {
+		Thread.sleep(1000);
 		Assert.assertTrue(page2.myAccountDisplayed(), "My Account not displayed");
 		System.out.println("My account option is displayed");
 	}
 
 	@Test(priority = 4)
-	public void verifySearchBoxAvailability() {
-
+	public void verifySearchBoxAvailability() throws InterruptedException {
+		Thread.sleep(1000);
 		Assert.assertTrue(page2.searchBoxDisplayed(), "Search box not displayed");
 		System.out.println("Search box is displayed ");
 	}
@@ -118,7 +126,7 @@ public class AddToWishlistTest {
 		System.out.println("Login and Logout Successful!!!");
 	}
 
-	@Test(priority = 13)
+	@Test(priority = 13,enabled=false)
 	public void verifyCloseBrowser() {
 		page1.closeBrowser();
 		System.out.println("Browser closed successfully!!!");

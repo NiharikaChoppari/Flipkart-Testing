@@ -1,26 +1,29 @@
-package com.flipkart.loginModule;
-
+package com.flipkart.test;
 import org.testng.Assert;
-
-import org.testng.annotations.Listeners;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.flipkart.Basepage.ListenerClass;
-import com.flipkart.loginModule.LoginPage;
-import com.flipkart.loginModule.LogoutPage;
-@Listeners(ListenerClass.class)
+import com.flipkart.pages.LoginPage;
+import com.flipkart.pages.LogoutPage;
+
 
 public class LoginTest
-
 {
-
-	LoginPage page = new LoginPage();
-	LogoutPage page1 = new LogoutPage();
-
+		
+	LoginPage page;
+	LogoutPage page1;
+	
+	@BeforeClass
+	void dependencies(){
+		System.out.println("Before class method ");
+		page = new LoginPage();
+		page1 = new LogoutPage();
+	}
+	
 	@Test(priority = 1)
-	public void verifyUrl() {
-
+	public void verifyUrl(){
+		
 		page.enterurl();
 		Assert.assertTrue(page.logindisplayed(), "url is entered and login page displayed");
 
@@ -104,11 +107,12 @@ public class LoginTest
 
 	@Test(priority = 7)
 	@Parameters({ "validUn", "validPwd" })
-	public void validlogin(String validUn, String validPwd) {
+	public void validlogin(String validUn, String validPwd) throws InterruptedException {
 
 		page.enterun(validUn);
 		page.enterpwd(validPwd);
 		page.clickOnLogin();
+		Thread.sleep(1000);
 		System.out.println("home page displayed");
 		Assert.assertTrue(page.homePageDisplayed(), "Home page not displayed");
 		System.out.println("validlogin execution successfull");
@@ -123,7 +127,7 @@ public class LoginTest
 		System.out.println("Login and Logout Successful!!!");
 	}
 
-	@Test(priority = 9)
+	@Test(priority = 9,enabled=false)
 	public void verifyCloseBrowser() {
 		page1.closeBrowser();
 		System.out.println("Browser closed successfully!!!");

@@ -1,22 +1,26 @@
-package com.flipkart.loginModule;
-
+package com.flipkart.test;
 import org.testng.Assert;
-import org.testng.annotations.Listeners;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.flipkart.Basepage.ListenerClass;
-import com.flipkart.loginModule.AddToCartPage;
-import com.flipkart.loginModule.LoginPage;
-import com.flipkart.loginModule.LogoutPage;
-@Listeners(ListenerClass.class)
+import com.flipkart.pages.AddToCartPage;
+import com.flipkart.pages.LoginPage;
+import com.flipkart.pages.LogoutPage;
 
 public class AddToCartTest {
 
-	AddToCartPage page2 = new AddToCartPage();
+	AddToCartPage page2;
+	LoginPage page;
+	LogoutPage page1;
 
-	LoginPage page = new LoginPage();
-	LogoutPage page1 = new LogoutPage();
+	@BeforeClass
+	void depedencies() {
+		page2 = new AddToCartPage();
+		page = new LoginPage();
+		page1 = new LogoutPage();
+
+	}
 
 	@Test(priority = 1)
 	public void verifyUrl() {
@@ -33,6 +37,7 @@ public class AddToCartTest {
 		page.enterpwd(validPwd);
 		page.clickOnLogin();
 		System.out.println("home page displayed");
+		Thread.sleep(1000);
 		Assert.assertTrue(page.homePageDisplayed(), "Home page not displayed");
 		System.out.println("validlogin  successfull");
 
@@ -45,8 +50,8 @@ public class AddToCartTest {
 	}
 
 	@Test(priority = 4)
-	public void verifySearchBoxAvailability() {
-
+	public void verifySearchBoxAvailability() throws InterruptedException {
+		Thread.sleep(1000);
 		Assert.assertTrue(page2.searchBoxDisplayed(), "Search box not displayed");
 		System.out.println("Search box is displayed ");
 	}
@@ -124,13 +129,13 @@ public class AddToCartTest {
 		System.out.println("Login and Logout Successful!!!");
 	}
 
-	@Test(priority = 14)
+	@Test(priority = 14,enabled=false)
 	public void verifyCloseBrowser() {
 		page1.closeBrowser();
 		System.out.println("Browser closed successfully!!!");
 	}
 
-	@Test(priority = 15)
+	@Test(priority = 15,enabled=false)
 	public void quit() {
 		page1.quitBrowser();
 	}

@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="false">
+	<listeners>
+		<listener class-name="com.flipkart.Basepage.ListenerClass" />
+	</listeners>
+
+
 	<test name="Test">
 
-
+		<parameter name="browser" value="Chrome" />
 		<parameter name="invalidUn" value="986682599" />
 		<parameter name="invalidPwd" value="Cn01234567" />
 		<parameter name="validUn" value="9866825999" />
 		<parameter name="validPwd" value="Cn012345678" />
-		<parameter name="product" value="dermease hand sanitizer" />
+		<parameter name="product"
+			value="Experiences of Test Automation  (English, Paperback, Graham Dorothy)" />
 
 
 		<classes>
 
-			<class name="com.flipkart.loginModule.LoginTest" />
-			<class name="com.flipkart.loginModule.AddToWishlistTest" />
-			<class name="com.flipkart.loginModule.AddToCartTest" />
-			<class name="com.flipkart.loginModule.BuyNowTest" />
+
+			<class name="com.flipkart.test.LoginTest" />
+			<class name="com.flipkart.test.AddToWishlistTest" />
+			<class name="com.flipkart.test.AddToCartTest" />
+			<class name="com.flipkart.test.BuyNowTest" />
 
 		</classes>
 

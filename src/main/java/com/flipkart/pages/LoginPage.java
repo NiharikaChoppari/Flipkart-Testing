@@ -1,5 +1,4 @@
-package com.flipkart.loginModule;
-
+package com.flipkart.pages;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -32,6 +31,8 @@ public class LoginPage extends BasePage {
 	
 	public LoginPage() {
 		PageFactory.initElements(d, this);
+		System.out.println("In login page constructor");
+		
 	}
 
 	static Properties prop;
