@@ -1,4 +1,4 @@
-package com.flipkart.loginModule;
+package com.flipkart.pages;
 
 import java.util.Set;
 import org.openqa.selenium.By;
@@ -10,8 +10,8 @@ import com.flipkart.Basepage.BasePage;
 
 public class AddToCartPage extends BasePage {
 
-	String productTitle = "A Practitioner's Guide to Test Automation Using SELENIUM  (English, Paperback, Garg Aditya)";
-	String productprice = "₹416";
+	public String productTitle = "Experiences of Test Automation  (English, Paperback, Graham Dorothy)";
+	public String productprice = "₹591";
 
 	@FindBy(xpath = "//div[@class='_2aUbKa']")
 	WebElement myAccount;
@@ -103,6 +103,7 @@ public class AddToCartPage extends BasePage {
 		for (String productWindow : allWindows) {
 			if (!homePageWindow.equalsIgnoreCase(productWindow)) {
 				d.switchTo().window(productWindow);
+				d.manage().window().maximize();
 			}
 		}
 
@@ -142,7 +143,7 @@ public class AddToCartPage extends BasePage {
 	}
 
 	public void removeFromCart() throws InterruptedException {
-		
+
 		Thread.sleep(1000);
 		remove.click();
 		removeConfirmation.click();

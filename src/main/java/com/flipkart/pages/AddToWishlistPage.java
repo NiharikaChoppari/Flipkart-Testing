@@ -1,4 +1,4 @@
-package com.flipkart.loginModule;
+package com.flipkart.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -34,7 +34,6 @@ public class AddToWishlistPage extends BasePage {
 	WebElement emptyWishlist;
 
 	public AddToWishlistPage() {
-
 		PageFactory.initElements(d, this);
 	}
 

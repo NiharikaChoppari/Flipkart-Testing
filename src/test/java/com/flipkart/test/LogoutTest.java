@@ -1,9 +1,8 @@
-package com.flipkart.loginModule;
-
+package com.flipkart.test;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import com.flipkart.loginModule.LogoutPage;
+import com.flipkart.pages.LogoutPage;
 
 public class LogoutTest {
 

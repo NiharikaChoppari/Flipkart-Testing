@@ -1,9 +1,7 @@
 package com.flipkart.Basepage;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
@@ -13,43 +11,35 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Parameters;
-import org.testng.annotations.Test;
-
+import org.openqa.selenium.support.PageFactory;
 
 public class BasePage {
-	
+
 	public static WebDriver d;
-		
-		public BasePage() {
-			
-			if(d == null) {
-				System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
-				d = new ChromeDriver();
-				d.manage().window().maximize();
-				System.out.println("Initiating Chrome Driver");
-				d.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-				d.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-			} 
-			/*else {
-				System.out.println("Chrome driver already initiated.");
-			} */
+
+	public static WebDriver getDriver(String browser) {
+
+		if (d == null && browser.equalsIgnoreCase("Chrome")) {
+
+			System.setProperty("webdriver.chrome.driver", "./Driver/chromedriver.exe");
+			d = new ChromeDriver();
+		} else if (d == null && browser.equalsIgnoreCase("IE")) {
+
+			System.setProperty("webdriver.ie.driver", "./Driver/IEDriverServer.exe");
+			d = new InternetExplorerDriver();
+		} else if (d == null && browser.equalsIgnoreCase("Edge")) {
+
+			System.setProperty("webdriver.edge.driver", "./Driver/msedgedriver.exe");
+			d = new EdgeDriver();
 		}
-	
-
-	public void screenshot() throws IOException{
-		
-		TakesScreenshot sc=(TakesScreenshot)d;
-		File f1=sc.getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(f1, new File("./Screenshots/ResultScreenshot2.jpg"));
+		return d;
 	}
-	
-}
-	
-	
 
+	public void screenshot(String FailedTestName) throws IOException {
+
+		TakesScreenshot sc = (TakesScreenshot) d;
+		File f1 = sc.getScreenshotAs(OutputType.FILE);
+		FileUtils.copyFile(f1, new File("./Screenshots/" + FailedTestName + ".jpg"));
+	}
+
+}

@@ -1,4 +1,4 @@
-package com.flipkart.loginModule;
+package com.flipkart.pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -19,6 +19,7 @@ public class LogoutPage extends BasePage {
 	WebElement logout;
 
 	public LogoutPage() {
+		System.out.println("Inside logout page constructor");
 		PageFactory.initElements(d, this);
 	}
 
