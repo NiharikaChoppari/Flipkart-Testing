@@ -51,7 +51,7 @@ public class ListenerClass extends BasePage implements ITestListener {
 	}
 
 	public void onFinish(ITestContext context) {
-
+		d=null;
 	}
 
 }
