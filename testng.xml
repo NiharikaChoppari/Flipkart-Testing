@@ -6,9 +6,32 @@
 	</listeners>
 
 
-	<test name="Test">
+	<test name="ChromeTest">
 
 		<parameter name="browser" value="Chrome" />
+		<parameter name="invalidUn" value="986682599" />
+		<parameter name="invalidPwd" value="Cn01234567" />
+		<parameter name="validUn" value="9866825999" />
+		<parameter name="validPwd" value="Cn012345678" />
+		<parameter name="product"
+			value="Experiences of Test Automation  (English, Paperback, Graham Dorothy)" />
+
+
+		<classes>
+
+
+			<class name="com.flipkart.test.LoginTest" />
+			<class name="com.flipkart.test.AddToWishlistTest" />
+			<class name="com.flipkart.test.AddToCartTest" />
+			<class name="com.flipkart.test.BuyNowTest" />
+
+		</classes>
+
+	</test> <!-- Test -->
+
+	<test name="EdgeTest">
+
+		<parameter name="browser" value="Edge" />
 		<parameter name="invalidUn" value="986682599" />
 		<parameter name="invalidPwd" value="Cn01234567" />
 		<parameter name="validUn" value="9866825999" />
