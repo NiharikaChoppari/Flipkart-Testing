@@ -1,12 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite" parallel="false">
+<suite name="Suite" parallel="tests" thread-count="2">
 	<listeners>
 		<listener class-name="com.flipkart.Basepage.ListenerClass" />
 	</listeners>
 
+	<!--<parameter name="invalidUn" value="986682599" /> <parameter name="invalidPwd" 
+		value="Cn01234567" /> <parameter name="validUn" value="9866825999" /> <parameter 
+		name="validPwd" value="Cn012345678" /> <parameter name="product" value="Experiences 
+		of Test Automation (English, Paperback, Graham Dorothy)" /> -->
 
-	<test name="ChromeTest">
+
+	<test name="ChromeTest1">
+
+		<parameter name="browser" value="Chrome" />
+		<parameter name="invalidUn" value="986682599" />
+		<parameter name="invalidPwd" value="Cn01234567" />
+		<parameter name="validUn" value="9493301749" />
+		<parameter name="validPwd" value="Cn012345678" />
+		<parameter name="product"
+			value="Experiences 
+		of Test Automation (English, Paperback, Graham Dorothy)" />
+
+		<classes>
+
+
+			<!-- <class name="com.flipkart.test.LoginTest" /> -->
+			<class name="com.flipkart.test.AddToWishlistTest" />
+			<!-- <class name="com.flipkart.test.AddToCartTest" />
+			 <class name="com.flipkart.test.BuyNowTest" 
+				/> -->
+
+		</classes>
+
+	</test> <!-- Test -->
+
+	<test name="ChromeTest2">
 
 		<parameter name="browser" value="Chrome" />
 		<parameter name="invalidUn" value="986682599" />
@@ -14,43 +43,21 @@
 		<parameter name="validUn" value="9866825999" />
 		<parameter name="validPwd" value="Cn012345678" />
 		<parameter name="product"
-			value="Experiences of Test Automation  (English, Paperback, Graham Dorothy)" />
-
+			value="Experiences 
+		of Test Automation (English, Paperback, Graham Dorothy)" />
 
 		<classes>
 
-
-			<class name="com.flipkart.test.LoginTest" />
+			<!-- <class name="com.flipkart.test.LoginTest" /> -->
 			<class name="com.flipkart.test.AddToWishlistTest" />
-			<class name="com.flipkart.test.AddToCartTest" />
-			<class name="com.flipkart.test.BuyNowTest" />
-
+			<!-- <class name="com.flipkart.test.AddToCartTest" />
+			 <class name="com.flipkart.test.BuyNowTest" 
+				/> -->
 		</classes>
 
 	</test> <!-- Test -->
 
-	<test name="EdgeTest">
 
-		<parameter name="browser" value="Edge" />
-		<parameter name="invalidUn" value="986682599" />
-		<parameter name="invalidPwd" value="Cn01234567" />
-		<parameter name="validUn" value="9866825999" />
-		<parameter name="validPwd" value="Cn012345678" />
-		<parameter name="product"
-			value="Experiences of Test Automation  (English, Paperback, Graham Dorothy)" />
-
-
-		<classes>
-
-
-			<class name="com.flipkart.test.LoginTest" />
-			<class name="com.flipkart.test.AddToWishlistTest" />
-			<class name="com.flipkart.test.AddToCartTest" />
-			<class name="com.flipkart.test.BuyNowTest" />
-
-		</classes>
-
-	</test> <!-- Test -->
 </suite> <!-- Suite --> 
 
 

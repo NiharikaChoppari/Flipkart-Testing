@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.flipkart.Basepage.BasePage;
+import com.flipkart.Basepage.DriverFactory;
 
 public class AddToWishlistPage extends BasePage {
 
@@ -34,7 +35,7 @@ public class AddToWishlistPage extends BasePage {
 	WebElement emptyWishlist;
 
 	public AddToWishlistPage() {
-		PageFactory.initElements(d, this);
+		PageFactory.initElements(DriverFactory.getDriver(), this);
 	}
 
 	public boolean wishlistBtnDisplayed() {
@@ -56,7 +57,7 @@ public class AddToWishlistPage extends BasePage {
 
 		try {
 
-			Actions action = new Actions(d);
+			Actions action = new Actions(DriverFactory.getDriver());
 
 			action.moveToElement(myAccount).build().perform();
 

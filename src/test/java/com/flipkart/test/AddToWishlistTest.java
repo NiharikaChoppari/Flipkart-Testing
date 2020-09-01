@@ -126,7 +126,7 @@ public class AddToWishlistTest {
 		System.out.println("Login and Logout Successful!!!");
 	}
 
-	@Test(priority = 13,enabled=false)
+	@Test(priority = 13)
 	public void verifyCloseBrowser() {
 		page1.closeBrowser();
 		System.out.println("Browser closed successfully!!!");

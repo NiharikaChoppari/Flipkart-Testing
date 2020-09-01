@@ -7,11 +7,12 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.flipkart.Basepage.BasePage;
+import com.flipkart.Basepage.DriverFactory;
 
 public class AddToCartPage extends BasePage {
 
-	public String productTitle = "Experiences of Test Automation  (English, Paperback, Graham Dorothy)";
-	public String productprice = "₹591";
+	 public String productTitle = "Experiences of Test Automation  (English, Paperback, Graham Dorothy)";
+	 public String productprice = "₹591";
 
 	@FindBy(xpath = "//div[@class='_2aUbKa']")
 	WebElement myAccount;
@@ -56,7 +57,7 @@ public class AddToCartPage extends BasePage {
 	WebElement logout;
 
 	public AddToCartPage() {
-		PageFactory.initElements(d, this);
+		PageFactory.initElements(DriverFactory.getDriver(), this);
 	}
 
 	public boolean myAccountDisplayed() {
@@ -95,15 +96,15 @@ public class AddToCartPage extends BasePage {
 
 	public void togglingWindow() {
 
-		String homePageWindow = d.getWindowHandle();
+		String homePageWindow = DriverFactory.getDriver().getWindowHandle();
 
-		product = d.findElement(By.xpath("//div[@class='_3BTv9X']/img[@class='_1Nyybr  _30XEf0']"));
+		product = DriverFactory.getDriver().findElement(By.xpath("//div[@class='_3BTv9X']/img[@class='_1Nyybr  _30XEf0']"));
 		product.click();
-		Set<String> allWindows = d.getWindowHandles();
+		Set<String> allWindows = DriverFactory.getDriver().getWindowHandles();
 		for (String productWindow : allWindows) {
 			if (!homePageWindow.equalsIgnoreCase(productWindow)) {
-				d.switchTo().window(productWindow);
-				d.manage().window().maximize();
+				DriverFactory.getDriver().switchTo().window(productWindow);
+				DriverFactory.getDriver().manage().window().maximize();
 			}
 		}
 
@@ -157,7 +158,7 @@ public class AddToCartPage extends BasePage {
 
 	public void logout() throws InterruptedException {
 
-		Actions a = new Actions(d);
+		Actions a = new Actions(DriverFactory.getDriver());
 		a.moveToElement(myAccount).build().perform();
 		logout.click();
 

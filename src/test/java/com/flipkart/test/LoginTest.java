@@ -22,14 +22,16 @@ public class LoginTest
 	}
 	
 	@Test(priority = 1)
-	public void verifyUrl(){
+	public void verifyUrl() throws InterruptedException{
 		
 		page.enterurl();
+		Thread.sleep(5000);
 		Assert.assertTrue(page.logindisplayed(), "url is entered and login page displayed");
+		Thread.sleep(5000);
 
 	}
 
-	@Test(priority = 2)
+	@Test(priority = 2,enabled=false)
 	@Parameters({ "validUn" })
 	public void verifyLoginWithOnlyUn(String validUn){
 
@@ -43,7 +45,7 @@ public class LoginTest
 
 	}
 
-	@Test(priority = 3)
+	@Test(priority = 3,enabled=false)
 	@Parameters({ "validPwd" })
 	public void verifyLoginWithOnlyPwd(String validPwd) {
 
@@ -56,7 +58,7 @@ public class LoginTest
 		System.out.println("verifyLoginWithOnlyPwd execution successfull");
 	}
 
-	@Test(priority = 4)
+	@Test(priority = 4,enabled=false)
 	@Parameters({ "invalidUn", "validPwd" })
 	public void invalidUnandValidPwd(String invalidUn, String validPwd){
 
@@ -72,7 +74,7 @@ public class LoginTest
 
 	}
 
-	@Test(priority = 5)
+	@Test(priority = 5,enabled=false)
 	@Parameters({ "validUn", "invalidPwd" })
 	public void validUnandInvalidPwd(String validUn, String invalidPwd) throws InterruptedException{
 
@@ -89,7 +91,7 @@ public class LoginTest
 
 	}
 
-	@Test(priority = 6)
+	@Test(priority = 6,enabled=false)
 	@Parameters({ "invalidUn", "invalidPwd" })
 	public void invalidUnandInvalidPwd(String invalidUn, String invalidPwd){
 
@@ -127,7 +129,7 @@ public class LoginTest
 		System.out.println("Login and Logout Successful!!!");
 	}
 
-	@Test(priority = 9,enabled=false)
+	@Test(priority = 9)
 	public void verifyCloseBrowser() {
 		page1.closeBrowser();
 		System.out.println("Browser closed successfully!!!");

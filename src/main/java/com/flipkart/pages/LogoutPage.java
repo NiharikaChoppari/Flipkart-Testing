@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.flipkart.Basepage.BasePage;
+import com.flipkart.Basepage.DriverFactory;
 
 public class LogoutPage extends BasePage {
 
@@ -20,7 +21,7 @@ public class LogoutPage extends BasePage {
 
 	public LogoutPage() {
 		System.out.println("Inside logout page constructor");
-		PageFactory.initElements(d, this);
+		PageFactory.initElements(DriverFactory.getDriver(), this);
 	}
 
 	public boolean loginButtonDisplayed() {
@@ -32,7 +33,7 @@ public class LogoutPage extends BasePage {
 	public void logout() throws InterruptedException {
 
 		Thread.sleep(1000);
-		Actions a = new Actions(d);
+		Actions a = new Actions(DriverFactory.getDriver());
 
 		a.moveToElement(myAccount).build().perform();
 
@@ -41,12 +42,12 @@ public class LogoutPage extends BasePage {
 	}
 
 	public void closeBrowser() {
-		d.close();
+		DriverFactory.getDriver().close();
 
 	}
 
 	public void quitBrowser() {
-		d.quit();
+		DriverFactory.getDriver().quit();
 	}
 
 }

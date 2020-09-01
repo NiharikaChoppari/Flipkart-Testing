@@ -13,6 +13,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
 
 import com.flipkart.Basepage.BasePage;
+import com.flipkart.Basepage.DriverFactory;
 
 public class BuyNowPage extends BasePage {
 
@@ -38,8 +39,8 @@ public class BuyNowPage extends BasePage {
 	WebElement goToCart;
 
 	public BuyNowPage() {
-		super();
-		PageFactory.initElements(d, this);
+		//super();
+		PageFactory.initElements(DriverFactory.getDriver(), this);
 
 	}
 

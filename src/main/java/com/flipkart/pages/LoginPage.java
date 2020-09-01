@@ -8,6 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.flipkart.Basepage.BasePage;
+import com.flipkart.Basepage.DriverFactory;
 
 public class LoginPage extends BasePage {
 
@@ -30,7 +31,7 @@ public class LoginPage extends BasePage {
 	WebElement homepage;
 	
 	public LoginPage() {
-		PageFactory.initElements(d, this);
+		PageFactory.initElements(DriverFactory.getDriver(), this);
 		System.out.println("In login page constructor");
 		
 	}
@@ -45,7 +46,7 @@ public class LoginPage extends BasePage {
 			FileInputStream ip = new FileInputStream("./config/config.properties");
 			prop.load(ip);
 			String url = prop.getProperty("flipkartUrl");
-			d.get(url);
+			DriverFactory.getDriver().get(url);
 
 		} catch (IOException e) {
 
