@@ -10,13 +10,13 @@ import com.flipkart.Basepage.DriverFactory;
 
 public class LogoutPage extends BasePage {
 
-	@FindBy(xpath = "//a[@class='_3Ep39l']")
+	@FindBy(xpath = "//a[@class='_1_3w1N']")
 	WebElement loginBtn;
 
-	@FindBy(xpath = "//div[@class='_2aUbKa']")
+	@FindBy(xpath = "//div[@class='exehdJ']")
 	WebElement myAccount;
 
-	@FindBy(xpath = "//ul[@class='RlwYhr undefined']/li[10]")
+	@FindBy(xpath = "//ul[@class='pO9syL undefined']/li[10]/a[@class='_2kxeIr']")
 	WebElement logout;
 
 	public LogoutPage() {

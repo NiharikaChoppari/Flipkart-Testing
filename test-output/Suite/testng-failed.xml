@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" name="Failed suite [Suite]" parallel="tests">
+  <parameter name="product" value="A Practitioners Guide to Test Automation Using SELENIUM"/>
+  <parameter name="browser" value="Chrome"/>
+  <parameter name="invalidPwd" value="Cn01234567"/>
+  <parameter name="validPwd" value="Cn012345678"/>
+  <parameter name="invalidUn" value="986682599"/>
+  <parameter name="validUn" value="9493301749"/>
+  <listeners>
+    <listener class-name="com.flipkart.Basepage.ListenerClass"/>
+  </listeners>
+  <test name="Test2(failed)" parallel="tests">
+    <parameter name="product" value="A Practitioners Guide to Test Automation Using SELENIUM"/>
+    <parameter name="browser" value="Chrome"/>
+    <parameter name="invalidPwd" value="Cn01234567"/>
+    <parameter name="validPwd" value="Cn012345678"/>
+    <parameter name="invalidUn" value="986682599"/>
+    <parameter name="validUn" value="9493301749"/>
+    <classes>
+      <class name="com.flipkart.test.LoginTest">
+        <methods>
+          <include name="dependencies"/>
+          <include name="verifylogout"/>
+        </methods>
+      </class> <!-- com.flipkart.test.LoginTest -->
+    </classes>
+  </test> <!-- Test2(failed) -->
+</suite> <!-- Failed suite [Suite] -->

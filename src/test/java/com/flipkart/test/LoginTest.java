@@ -25,9 +25,8 @@ public class LoginTest
 	public void verifyUrl() throws InterruptedException{
 		
 		page.enterurl();
-		Thread.sleep(5000);
 		Assert.assertTrue(page.logindisplayed(), "url is entered and login page displayed");
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 
 	}
 

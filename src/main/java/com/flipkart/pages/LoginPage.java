@@ -2,10 +2,14 @@ package com.flipkart.pages;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.flipkart.Basepage.BasePage;
 import com.flipkart.Basepage.DriverFactory;
@@ -21,13 +25,13 @@ public class LoginPage extends BasePage {
 	@FindBy(xpath = "//input[@type='password']")
 	WebElement password;
 
-	@FindBy(xpath = "//button[@class='_2AkmmA _1LctnI _7UHT_c']")
+	@FindBy(xpath = "//button[@class='_2KpZ6l _2HKlqd _3AWRsL']")
 	WebElement loginbutton;
 
 	@FindBy(xpath = "//span[@class='ZAtlA-']/span")
 	WebElement errormsg;
 
-	@FindBy(xpath = "//div[@class='_2aUbKa']")
+	@FindBy(xpath = "//div[@class='exehdJ']")
 	WebElement homepage;
 	
 	public LoginPage() {
@@ -63,6 +67,7 @@ public class LoginPage extends BasePage {
 	}
 
 	public void enterun(String un) {
+		
 		username.sendKeys(un);
 	}
 

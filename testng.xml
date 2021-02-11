@@ -5,13 +5,7 @@
 		<listener class-name="com.flipkart.Basepage.ListenerClass" />
 	</listeners>
 
-	<!--<parameter name="invalidUn" value="986682599" /> <parameter name="invalidPwd" 
-		value="Cn01234567" /> <parameter name="validUn" value="9866825999" /> <parameter 
-		name="validPwd" value="Cn012345678" /> <parameter name="product" value="Experiences 
-		of Test Automation (English, Paperback, Graham Dorothy)" /> -->
-
-
-	<test name="ChromeTest1">
+	<test name="Test2">
 
 		<parameter name="browser" value="Chrome" />
 		<parameter name="invalidUn" value="986682599" />
@@ -19,44 +13,21 @@
 		<parameter name="validUn" value="9493301749" />
 		<parameter name="validPwd" value="Cn012345678" />
 		<parameter name="product"
-			value="Experiences 
-		of Test Automation (English, Paperback, Graham Dorothy)" />
+			value="A Practitioners Guide to Test Automation Using SELENIUM" />
 
 		<classes>
+		 
+		 	<class name="com.flipkart.test.LoginTest" />
 
-
-			<!-- <class name="com.flipkart.test.LoginTest" /> -->
+			<!-- <class name="com.flipkart.test.LoginTest" /> 
 			<class name="com.flipkart.test.AddToWishlistTest" />
-			<!-- <class name="com.flipkart.test.AddToCartTest" />
+			 <class name="com.flipkart.test.AddToCartTest" />
 			 <class name="com.flipkart.test.BuyNowTest" 
 				/> -->
 
 		</classes>
 
 	</test> <!-- Test -->
-
-	<test name="ChromeTest2">
-
-		<parameter name="browser" value="Chrome" />
-		<parameter name="invalidUn" value="986682599" />
-		<parameter name="invalidPwd" value="Cn01234567" />
-		<parameter name="validUn" value="9866825999" />
-		<parameter name="validPwd" value="Cn012345678" />
-		<parameter name="product"
-			value="Experiences 
-		of Test Automation (English, Paperback, Graham Dorothy)" />
-
-		<classes>
-
-			<!-- <class name="com.flipkart.test.LoginTest" /> -->
-			<class name="com.flipkart.test.AddToWishlistTest" />
-			<!-- <class name="com.flipkart.test.AddToCartTest" />
-			 <class name="com.flipkart.test.BuyNowTest" 
-				/> -->
-		</classes>
-
-	</test> <!-- Test -->
-
 
 </suite> <!-- Suite --> 
 

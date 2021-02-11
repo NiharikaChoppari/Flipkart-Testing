@@ -48,7 +48,7 @@ public class ListenerClass extends BasePage implements ITestListener,Runnable {
 		WebDriver d = BasePage.getDriver(browserName);
 		DriverFactory.setDriver(d);
 		d=DriverFactory.getDriver();
-		d.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
+		d.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		d.manage().window().maximize();
 		System.out.println("Initiating " + browserName + " browser");
 

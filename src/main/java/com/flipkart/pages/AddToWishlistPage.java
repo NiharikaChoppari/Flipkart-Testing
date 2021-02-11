@@ -10,28 +10,28 @@ import com.flipkart.Basepage.DriverFactory;
 
 public class AddToWishlistPage extends BasePage {
 
-	@FindBy(xpath = "//div[@class='_3gDSOa _3iGnbq']/div")
+	@FindBy(xpath = "//div[@class='_2hVSre _1eAP-x']/div")
 	WebElement wishListBtn;
 
-	@FindBy(xpath = "//div[@class='_3gDSOa _3iGnbq _2kA-_z']/div")
+	@FindBy(xpath = "//div[@class='_2hVSre _1eAP-x _21GqcY']/div")
 	WebElement wishListBtnSelected;
 
-	@FindBy(xpath = "//div[@class='_2aUbKa']")
+	@FindBy(xpath = "//div[@class='exehdJ']")
 	WebElement myAccount;
 
-	@FindBy(xpath = "//ul[@class='RlwYhr undefined']/li[5]")
+	@FindBy(xpath = "//ul[@class='pO9syL undefined']/li[5]")
 	WebElement wishlistInDropdown;
 
-	@FindBy(xpath = "//div[@class='_3oWply']")
+	@FindBy(xpath = "//div[@class='_3FVYY1']")
 	WebElement wishlistPage;
 
-	@FindBy(xpath = "//img[@class='_27LgAY']")
+	@FindBy(xpath = "//img[@class='_2Nq6Qc']")
 	WebElement removeBtn;
 
-	@FindBy(xpath = "//button[@class='_2AkmmA _1WPB7I']")
+	@FindBy(xpath = "//button[@class='_2KpZ6l _3S58wp']")
 	WebElement removeLink;
 
-	@FindBy(xpath = "//span[@class='_3Lk2d2']")
+	@FindBy(xpath = "//span[@class='_3Juh7R']")
 	WebElement emptyWishlist;
 
 	public AddToWishlistPage() {

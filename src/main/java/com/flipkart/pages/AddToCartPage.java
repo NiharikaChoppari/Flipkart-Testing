@@ -6,21 +6,24 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.flipkart.Basepage.BasePage;
 import com.flipkart.Basepage.DriverFactory;
 
 public class AddToCartPage extends BasePage {
 
-	 public String productTitle = "Experiences of Test Automation  (English, Paperback, Graham Dorothy)";
-	 public String productprice = "₹591";
+	 public String productTitle = "A Practitioner's Guide to Test Automation Using SELENIUM  (English, Paperback, Garg Aditya)";
+	 public String productprice = "₹416";
 
-	@FindBy(xpath = "//div[@class='_2aUbKa']")
+	@FindBy(xpath = "//div[@class='exehdJ']")
 	WebElement myAccount;
 
-	@FindBy(xpath = "//a[@class='_3ko_Ud']")
+	@FindBy(xpath = "//a[@class='_3SkBxJ']")
 	WebElement cartIcon;
 
-	@FindBy(name = "q")
+	@FindBy(xpath = "//*[@id='container']/div/div[1]/div[1]/div[2]/div[2]/form/div/div/input")
 	WebElement searchBox;
 
 	@FindBy(xpath = "//button[@type='submit']")
@@ -29,13 +32,13 @@ public class AddToCartPage extends BasePage {
 	@FindBy(xpath = "//span[@class='ZAtlA-']/span")
 	WebElement errormsg;
 
-	@FindBy(xpath = "//div[@class='_3BTv9X']/img[@class='_1Nyybr  _30XEf0']")
+	@FindBy(xpath = "//div[@class='CXW8mj']/img[@class='_396cs4  _3exPp9']")
 	WebElement product;
 
-	@FindBy(xpath = "//span[@class='_35KyD6']")
+	@FindBy(xpath = "//span[@class='B_NuCI']")
 	WebElement titleOfProduct;
 
-	@FindBy(xpath = "//div[@class='_1vC4OE _3qQ9m1']")
+	@FindBy(xpath = "//div[@class='_30jeq3 _16Jk6d']")
 	WebElement priceOfProduct;
 
 	@FindBy(xpath = "//button[@class='_2AkmmA _2Npkh4 _2MWPVK']")
@@ -53,7 +56,7 @@ public class AddToCartPage extends BasePage {
 	@FindBy(xpath = "//div[@class='hJKWmk']")
 	WebElement cartMsg;
 
-	@FindBy(xpath = "//ul[@class='RlwYhr']/li[10]")
+	@FindBy(xpath = "//ul[@class='pO9syL undefined']/li[10]/a[@class='_2kxeIr']")
 	WebElement logout;
 
 	public AddToCartPage() {
@@ -81,6 +84,7 @@ public class AddToCartPage extends BasePage {
 	}
 
 	public void enterProductName(String productname) {
+		searchBox.click();
 		searchBox.sendKeys(productname);
 	}
 
@@ -88,8 +92,10 @@ public class AddToCartPage extends BasePage {
 		searchButton.click();
 	}
 
-	public boolean productDisplayed() throws InterruptedException {
-		Thread.sleep(1000);
+	public boolean productDisplayed(){
+		
+		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(),60);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='container']/div/div[3]/div/div[2]/div[2]/div/div/div/a[1]/div[1]/div/div/img")));
 		boolean productDisplay = product.isDisplayed();
 		return productDisplay;
 	}
@@ -98,7 +104,7 @@ public class AddToCartPage extends BasePage {
 
 		String homePageWindow = DriverFactory.getDriver().getWindowHandle();
 
-		product = DriverFactory.getDriver().findElement(By.xpath("//div[@class='_3BTv9X']/img[@class='_1Nyybr  _30XEf0']"));
+		product = DriverFactory.getDriver().findElement(By.xpath("//div[@class='col-12-12 _2oO9oE']/div[@class='_3OO5Xc']"));
 		product.click();
 		Set<String> allWindows = DriverFactory.getDriver().getWindowHandles();
 		for (String productWindow : allWindows) {
@@ -136,16 +142,14 @@ public class AddToCartPage extends BasePage {
 		cartButton.click();
 	}
 
-	public boolean removeDisplayed() throws InterruptedException {
-		Thread.sleep(1000);
+	public boolean removeDisplayed() {
 		boolean removeBtnDisplayed = remove.isDisplayed();
 		return removeBtnDisplayed;
 
 	}
 
-	public void removeFromCart() throws InterruptedException {
+	public void removeFromCart() {
 
-		Thread.sleep(1000);
 		remove.click();
 		removeConfirmation.click();
 	}
@@ -156,7 +160,7 @@ public class AddToCartPage extends BasePage {
 		return msg;
 	}
 
-	public void logout() throws InterruptedException {
+	public void logout() {
 
 		Actions a = new Actions(DriverFactory.getDriver());
 		a.moveToElement(myAccount).build().perform();

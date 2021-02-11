@@ -71,19 +71,20 @@ public class AddToCartTest {
 	@Test(priority = 7)
 	@Parameters({ "product" })
 	public void verifyProductSearch(String product) throws InterruptedException {
+		Thread.sleep(2000);
 		page2.enterProductName(product);
 		System.out.println("Product name entered");
 		page2.clickOnSearchBtn();
-		Thread.sleep(2000);
-		System.out.println(page2.productDisplayed());
+		System.out.println("product search successful");
 		Assert.assertTrue(page2.productDisplayed(), "Product not displayed");
 		System.out.println("Product displayed");
 
 	}
 
 	@Test(priority = 8)
-	public void verifyProductDisplayed() {
+	public void verifyProductDisplayed() throws InterruptedException {
 		page2.togglingWindow();
+		Thread.sleep(2000);
 		Assert.assertEquals(page2.productTitle, page2.productTitle(), "Expected and Actual title did not matched");
 		System.out.println("Title of the product verified");
 		Assert.assertEquals(page2.productprice, page2.productPrice(), "Expected and Actual price did not matched");
@@ -121,7 +122,7 @@ public class AddToCartTest {
 
 	}
 
-	@Test(priority = 13)
+	@Test(priority = 13,enabled=false)
 	public void verifylogout() throws InterruptedException {
 		page2.logout();
 		Thread.sleep(1000);
