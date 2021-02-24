@@ -13,30 +13,29 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.PageFactory;
 
-public class BasePage extends Thread{
+public class BasePage extends Thread {
 
 	public static WebDriver d;
 
 	public static WebDriver getDriver(String browser) {
-		if(d==null){
-		if (browser.equalsIgnoreCase("Chrome")) {
+		if (d == null) {
+			if (browser.equalsIgnoreCase("Chrome")) {
 
-			System.setProperty("webdriver.chrome.driver", "./Driver/chromedriver.exe");
-			  d = new ChromeDriver();
-			
-		} else if (browser.equalsIgnoreCase("IE")) {
+				System.setProperty("webdriver.chrome.driver", "./Driver/chromedriver.exe");
+				d = new ChromeDriver();
 
-			System.setProperty("webdriver.ie.driver", "./Driver/IEDriverServer.exe");
-			  d = new InternetExplorerDriver();
-		} else if (browser.equalsIgnoreCase("Edge")) {
+			} else if (browser.equalsIgnoreCase("IE")) {
 
-			System.setProperty("webdriver.edge.driver", "./Driver/msedgedriver.exe");
+				System.setProperty("webdriver.ie.driver", "./Driver/IEDriverServer.exe");
+				d = new InternetExplorerDriver();
+			} else if (browser.equalsIgnoreCase("Edge")) {
+
+				System.setProperty("webdriver.edge.driver", "./Driver/msedgedriver.exe");
 				d = new EdgeDriver();
-		}
+			}
 		}
 		return d;
 	}
-	
 
 	public void screenshot(String FailedTestName) throws IOException {
 

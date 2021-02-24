@@ -1,4 +1,5 @@
 package com.flipkart.pages;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -33,11 +34,9 @@ public class LoginPage extends BasePage {
 
 	@FindBy(xpath = "//div[@class='exehdJ']")
 	WebElement homepage;
-	
+
 	public LoginPage() {
 		PageFactory.initElements(DriverFactory.getDriver(), this);
-		System.out.println("In login page constructor");
-		
 	}
 
 	static Properties prop;
@@ -67,7 +66,7 @@ public class LoginPage extends BasePage {
 	}
 
 	public void enterun(String un) {
-		
+
 		username.sendKeys(un);
 	}
 

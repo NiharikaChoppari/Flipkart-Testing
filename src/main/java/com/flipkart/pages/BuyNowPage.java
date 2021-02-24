@@ -1,7 +1,6 @@
 package com.flipkart.pages;
+
 import java.io.File;
-
-
 
 import java.io.IOException;
 import org.apache.commons.io.FileUtils;
@@ -17,29 +16,41 @@ import com.flipkart.Basepage.DriverFactory;
 
 public class BuyNowPage extends BasePage {
 
-	@FindBy(xpath = "//div[@class='_39M2dM JB4AMj']")
+	@FindBy(xpath = "//div[@class='_3oBhRa col col-2-5 _4H6HH5']")
 	WebElement login;
 
-	@FindBy(xpath = "//button[@class='_2AkmmA _2Npkh4 _2kuvG8 _7UHT_c']")
+	@FindBy(xpath = "//button[@class='_2KpZ6l _2U9uOA ihZ75k _3AWRsL']")
 	WebElement buyNowBtn;
 
-	@FindBy(xpath = "//div[@class='_3BTv9X']/img[@class='_1Nyybr  _30XEf0']")
+	@FindBy(xpath = "//div[@class='CXW8mj']/img[@class='_396cs4  _3exPp9']")
 	WebElement product;
 
-	@FindBy(xpath = "//div[@class='_3GoQc2']")
+	@FindBy(xpath = "//span[@class='_2-ut7f _1WpvJ7']")
 	WebElement price;
 
-	@FindBy(xpath = "//img[@class='_1e_EAo']")
+	@FindBy(xpath = "//a[@class='_3SkBxJ']")
+	WebElement cartIcon;
+
+	@FindBy(xpath = "//div[@class='_2Kn22P']")
 	WebElement title;
 
-	@FindBy(xpath = "//div[@class='gdUKd9']")
+	@FindBy(xpath = "//div[@class='_3dsJAO']")
 	WebElement remove;
 
-	@FindBy(linkText = "GO TO CART")
-	WebElement goToCart;
+	@FindBy(xpath = "/html/body/div[1]/div/div[1]/div/div[3]/div/div[2]")
+	WebElement removeConfirmation;
+
+	@FindBy(xpath = "//div[@class='LYTQKl']")
+	WebElement cartMessage;
+
+	@FindBy(xpath = "//*[@id=\"container\"]/div/div[2]/div/div[2]/div/div/a[1]/img")
+	WebElement flipkartLogo;
+
+	@FindBy(xpath = "//div[@class='_1LCJ1U']")
+	WebElement emptyCartMessage;
 
 	public BuyNowPage() {
-		//super();
+
 		PageFactory.initElements(DriverFactory.getDriver(), this);
 
 	}
@@ -77,12 +88,29 @@ public class BuyNowPage extends BasePage {
 		remove.click();
 	}
 
-	public boolean goToCartDisplayed() {
-		return goToCart.isDisplayed();
+	public boolean removeProduct() {
+
+		boolean removeProductmessage = cartMessage.isDisplayed();
+		return removeProductmessage;
+
 	}
 
-	public void clickOnGoToCart() {
-		goToCart.click();
+	public void clickOnFlipkartLogo() {
+
+		flipkartLogo.click();
 	}
-	
+
+	public void removeProductFromCart() throws InterruptedException {
+		Thread.sleep(1000);
+		cartIcon.click();
+		Thread.sleep(1000);
+		remove.click();
+	}
+
+	public boolean emptyCartMessage() {
+
+		boolean message = emptyCartMessage.isDisplayed();
+		return message;
+	}
+
 }

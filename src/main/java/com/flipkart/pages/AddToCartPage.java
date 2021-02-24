@@ -14,8 +14,8 @@ import com.flipkart.Basepage.DriverFactory;
 
 public class AddToCartPage extends BasePage {
 
-	 public String productTitle = "A Practitioner's Guide to Test Automation Using SELENIUM  (English, Paperback, Garg Aditya)";
-	 public String productprice = "₹416";
+	public String productTitle = "A Practitioner's Guide to Test Automation Using SELENIUM  (English, Paperback, Garg Aditya)";
+	public String productprice = "₹418";
 
 	@FindBy(xpath = "//div[@class='exehdJ']")
 	WebElement myAccount;
@@ -41,22 +41,28 @@ public class AddToCartPage extends BasePage {
 	@FindBy(xpath = "//div[@class='_30jeq3 _16Jk6d']")
 	WebElement priceOfProduct;
 
-	@FindBy(xpath = "//button[@class='_2AkmmA _2Npkh4 _2MWPVK']")
+	@FindBy(xpath = "//*[@id=\"pincodeInputId\"]")
+	WebElement pincodeField;
+
+	@FindBy(xpath = "//span[@class='_2P_LDn']")
+	WebElement checkButton;
+
+	@FindBy(xpath = "//button[@class='_2KpZ6l _2U9uOA _3v1-ww']")
 	WebElement cartButton;
 
-	@FindBy(xpath = "//button[@class='_2AkmmA _2Npkh4 _2kuvG8 _7UHT_c']")
+	@FindBy(xpath = "//button[@class='_2KpZ6l _2U9uOA ihZ75k _3AWRsL']")
 	WebElement buyNow;
 
-	@FindBy(xpath = "//div[@class='_3IO2ev _2K02N8 _2x63a8']/div[2]")
+	@FindBy(xpath = "//div[@class='_10vWcL td-FUv WDiNrH']/div[2]")
 	WebElement remove;
 
-	@FindBy(xpath = "//div[@class='gdUKd9 _3Z4XMp _2nQDKB']")
+	@FindBy(xpath = "//*[@id=\"container\"]/div/div[1]/div/div[3]/div/div[2]")
 	WebElement removeConfirmation;
 
-	@FindBy(xpath = "//div[@class='hJKWmk']")
+	@FindBy(xpath = "//div[@class='_1LCJ1U']")
 	WebElement cartMsg;
 
-	@FindBy(xpath = "//ul[@class='pO9syL undefined']/li[10]/a[@class='_2kxeIr']")
+	@FindBy(xpath = "//ul[@class='pO9syL']/li[10]/a[@class='_2kxeIr']")
 	WebElement logout;
 
 	public AddToCartPage() {
@@ -84,7 +90,6 @@ public class AddToCartPage extends BasePage {
 	}
 
 	public void enterProductName(String productname) {
-		searchBox.click();
 		searchBox.sendKeys(productname);
 	}
 
@@ -92,10 +97,11 @@ public class AddToCartPage extends BasePage {
 		searchButton.click();
 	}
 
-	public boolean productDisplayed(){
-		
-		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(),60);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='container']/div/div[3]/div/div[2]/div[2]/div/div/div/a[1]/div[1]/div/div/img")));
+	public boolean productDisplayed() {
+
+		WebDriverWait wait = new WebDriverWait(DriverFactory.getDriver(), 60);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(
+				By.xpath("//*[@id='container']/div/div[3]/div/div[2]/div[2]/div/div/div/a[1]/div[1]/div/div/img")));
 		boolean productDisplay = product.isDisplayed();
 		return productDisplay;
 	}
@@ -104,7 +110,8 @@ public class AddToCartPage extends BasePage {
 
 		String homePageWindow = DriverFactory.getDriver().getWindowHandle();
 
-		product = DriverFactory.getDriver().findElement(By.xpath("//div[@class='col-12-12 _2oO9oE']/div[@class='_3OO5Xc']"));
+		product = DriverFactory.getDriver()
+				.findElement(By.xpath("//div[@class='CXW8mj']/img[@class='_396cs4  _3exPp9']"));
 		product.click();
 		Set<String> allWindows = DriverFactory.getDriver().getWindowHandles();
 		for (String productWindow : allWindows) {
@@ -113,6 +120,14 @@ public class AddToCartPage extends BasePage {
 				DriverFactory.getDriver().manage().window().maximize();
 			}
 		}
+
+	}
+
+	public void checkProductAvailability(String pincode) {
+
+		pincodeField.click();
+		pincodeField.sendKeys(pincode);
+		checkButton.click();
 
 	}
 

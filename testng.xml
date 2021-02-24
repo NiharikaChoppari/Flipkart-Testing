@@ -5,25 +5,40 @@
 		<listener class-name="com.flipkart.Basepage.ListenerClass" />
 	</listeners>
 
-	<test name="Test2">
+	<test name="Test1">
 
 		<parameter name="browser" value="Chrome" />
 		<parameter name="invalidUn" value="986682599" />
 		<parameter name="invalidPwd" value="Cn01234567" />
 		<parameter name="validUn" value="9493301749" />
 		<parameter name="validPwd" value="Cn012345678" />
+		<parameter name="pincode" value="500035" />
 		<parameter name="product"
 			value="A Practitioners Guide to Test Automation Using SELENIUM" />
 
 		<classes>
-		 
-		 	<class name="com.flipkart.test.LoginTest" />
 
-			<!-- <class name="com.flipkart.test.LoginTest" /> 
-			<class name="com.flipkart.test.AddToWishlistTest" />
-			 <class name="com.flipkart.test.AddToCartTest" />
-			 <class name="com.flipkart.test.BuyNowTest" 
-				/> -->
+			<class name="com.flipkart.test.LoginTest" />
+			<class name="com.flipkart.test.AddToCartTest" />
+
+		</classes>
+
+	</test> <!-- Test -->
+	<test name="Test2">
+
+		<parameter name="browser" value="Edge" />
+		<parameter name="invalidUn" value="986682599" />
+		<parameter name="invalidPwd" value="Cn01234567" />
+		<parameter name="validUn" value="9866825999" />
+		<parameter name="validPwd" value="Cn012345678" />
+		<parameter name="pincode" value="500035" />
+		<parameter name="product"
+			value="A Practitioners Guide to Test Automation Using SELENIUM" />
+
+		<classes>
+
+			<class name="com.flipkart.test.LoginTest" />
+			<class name="com.flipkart.test.AddToCartTest" />
 
 		</classes>
 

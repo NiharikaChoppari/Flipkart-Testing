@@ -1,21 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="4" passed="4">
+<testng-results skipped="0" failed="0" total="30" passed="30">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="149106" started-at="2021-02-11T13:00:21Z" finished-at="2021-02-11T13:02:50Z">
+  <suite name="Suite" duration-ms="49324" started-at="2021-02-24T08:12:52Z" finished-at="2021-02-24T08:13:41Z">
     <groups>
     </groups>
-    <test name="Test2" duration-ms="149106" started-at="2021-02-11T13:00:21Z" finished-at="2021-02-11T13:02:50Z">
+    <test name="Test1" duration-ms="42887" started-at="2021-02-24T08:12:52Z" finished-at="2021-02-24T08:13:35Z">
+      <class name="com.flipkart.test.AddToCartTest">
+        <test-method status="PASS" signature="depedencies()[pri:0, instance:com.flipkart.test.AddToCartTest@d2cc05a]" name="depedencies" is-config="true" duration-ms="72" started-at="2021-02-24T13:43:06Z" finished-at="2021-02-24T13:43:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- depedencies -->
+        <test-method status="PASS" signature="verifyMyAccountDisplayed()[pri:0, instance:com.flipkart.test.AddToCartTest@d2cc05a]" name="verifyMyAccountDisplayed" duration-ms="128" started-at="2021-02-24T13:43:06Z" finished-at="2021-02-24T13:43:06Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyMyAccountDisplayed -->
+        <test-method status="PASS" signature="verifySearchBoxAvailability()[pri:0, instance:com.flipkart.test.AddToCartTest@d2cc05a]" name="verifySearchBoxAvailability" duration-ms="1150" started-at="2021-02-24T13:43:06Z" finished-at="2021-02-24T13:43:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySearchBoxAvailability -->
+        <test-method status="PASS" signature="verifySearchBtnAvailability()[pri:0, instance:com.flipkart.test.AddToCartTest@d2cc05a]" name="verifySearchBtnAvailability" duration-ms="110" started-at="2021-02-24T13:43:07Z" finished-at="2021-02-24T13:43:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySearchBtnAvailability -->
+        <test-method status="PASS" signature="verifyCartButtonDisplayed()[pri:0, instance:com.flipkart.test.AddToCartTest@d2cc05a]" name="verifyCartButtonDisplayed" duration-ms="109" started-at="2021-02-24T13:43:08Z" finished-at="2021-02-24T13:43:08Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCartButtonDisplayed -->
+        <test-method status="PASS" signature="verifyProductSearch(java.lang.String)[pri:0, instance:com.flipkart.test.AddToCartTest@d2cc05a]" name="verifyProductSearch" duration-ms="3407" started-at="2021-02-24T13:43:11Z" finished-at="2021-02-24T13:43:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[A Practitioners Guide to Test Automation Using SELENIUM]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyProductSearch -->
+        <test-method status="PASS" signature="verifyProductDisplayed(java.lang.String)[pri:0, instance:com.flipkart.test.AddToCartTest@d2cc05a]" name="verifyProductDisplayed" duration-ms="6953" started-at="2021-02-24T13:43:15Z" finished-at="2021-02-24T13:43:22Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[500035]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyProductDisplayed -->
+        <test-method status="PASS" signature="verifyAddToCartBtnDisplayed()[pri:0, instance:com.flipkart.test.AddToCartTest@d2cc05a]" name="verifyAddToCartBtnDisplayed" duration-ms="1231" started-at="2021-02-24T13:43:22Z" finished-at="2021-02-24T13:43:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAddToCartBtnDisplayed -->
+        <test-method status="PASS" signature="verifyBuyNowBtnDisplayed()[pri:0, instance:com.flipkart.test.AddToCartTest@d2cc05a]" name="verifyBuyNowBtnDisplayed" duration-ms="99" started-at="2021-02-24T13:43:23Z" finished-at="2021-02-24T13:43:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyBuyNowBtnDisplayed -->
+        <test-method status="PASS" signature="verifyAddToCart()[pri:0, instance:com.flipkart.test.AddToCartTest@d2cc05a]" name="verifyAddToCart" duration-ms="247" started-at="2021-02-24T13:43:23Z" finished-at="2021-02-24T13:43:23Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAddToCart -->
+        <test-method status="PASS" signature="verifyRemoveFromCart()[pri:0, instance:com.flipkart.test.AddToCartTest@d2cc05a]" name="verifyRemoveFromCart" duration-ms="5834" started-at="2021-02-24T13:43:23Z" finished-at="2021-02-24T13:43:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyRemoveFromCart -->
+        <test-method status="PASS" signature="verifylogout()[pri:0, instance:com.flipkart.test.AddToCartTest@d2cc05a]" name="verifylogout" duration-ms="4321" started-at="2021-02-24T13:43:29Z" finished-at="2021-02-24T13:43:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifylogout -->
+        <test-method status="PASS" signature="verifyCloseBrowser()[pri:0, instance:com.flipkart.test.AddToCartTest@d2cc05a]" name="verifyCloseBrowser" duration-ms="309" started-at="2021-02-24T13:43:33Z" finished-at="2021-02-24T13:43:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCloseBrowser -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:com.flipkart.test.AddToCartTest@d2cc05a]" name="quit" duration-ms="1182" started-at="2021-02-24T13:43:34Z" finished-at="2021-02-24T13:43:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- com.flipkart.test.AddToCartTest -->
       <class name="com.flipkart.test.LoginTest">
-        <test-method status="PASS" signature="dependencies()[pri:0, instance:com.flipkart.test.LoginTest@36d4b5c]" name="dependencies" is-config="true" duration-ms="30" started-at="2021-02-11T18:30:24Z" finished-at="2021-02-11T18:30:24Z">
+        <test-method status="PASS" signature="dependencies()[pri:0, instance:com.flipkart.test.LoginTest@6cc4c815]" name="dependencies" is-config="true" duration-ms="57" started-at="2021-02-24T13:42:56Z" finished-at="2021-02-24T13:42:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- dependencies -->
-        <test-method status="PASS" signature="verifyUrl()[pri:0, instance:com.flipkart.test.LoginTest@36d4b5c]" name="verifyUrl" duration-ms="51440" started-at="2021-02-11T18:30:24Z" finished-at="2021-02-11T18:31:16Z">
+        <test-method status="PASS" signature="verifyUrl()[pri:0, instance:com.flipkart.test.LoginTest@6cc4c815]" name="verifyUrl" duration-ms="9914" started-at="2021-02-24T13:42:56Z" finished-at="2021-02-24T13:43:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyUrl -->
-        <test-method status="PASS" signature="validlogin(java.lang.String, java.lang.String)[pri:0, instance:com.flipkart.test.LoginTest@36d4b5c]" name="validlogin" duration-ms="44916" started-at="2021-02-11T18:31:16Z" finished-at="2021-02-11T18:32:01Z">
+        <test-method status="PASS" signature="validlogin(java.lang.String, java.lang.String)[pri:0, instance:com.flipkart.test.LoginTest@6cc4c815]" name="validlogin" duration-ms="3702" started-at="2021-02-24T13:43:08Z" finished-at="2021-02-24T13:43:11Z">
           <params>
             <param index="0">
               <value>
@@ -31,14 +103,106 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- validlogin -->
-        <test-method status="PASS" signature="verifylogout()[pri:0, instance:com.flipkart.test.LoginTest@36d4b5c]" name="verifylogout" duration-ms="49239" started-at="2021-02-11T18:32:01Z" finished-at="2021-02-11T18:32:50Z">
+      </class> <!-- com.flipkart.test.LoginTest -->
+    </test> <!-- Test1 -->
+    <test name="Test2" duration-ms="49324" started-at="2021-02-24T08:12:52Z" finished-at="2021-02-24T08:13:41Z">
+      <class name="com.flipkart.test.AddToCartTest">
+        <test-method status="PASS" signature="depedencies()[pri:0, instance:com.flipkart.test.AddToCartTest@4b9e13df]" name="depedencies" is-config="true" duration-ms="8" started-at="2021-02-24T13:43:10Z" finished-at="2021-02-24T13:43:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- depedencies -->
+        <test-method status="PASS" signature="verifyMyAccountDisplayed()[pri:0, instance:com.flipkart.test.AddToCartTest@4b9e13df]" name="verifyMyAccountDisplayed" duration-ms="79" started-at="2021-02-24T13:43:10Z" finished-at="2021-02-24T13:43:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyMyAccountDisplayed -->
+        <test-method status="PASS" signature="verifySearchBoxAvailability()[pri:0, instance:com.flipkart.test.AddToCartTest@4b9e13df]" name="verifySearchBoxAvailability" duration-ms="1076" started-at="2021-02-24T13:43:10Z" finished-at="2021-02-24T13:43:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySearchBoxAvailability -->
+        <test-method status="PASS" signature="verifySearchBtnAvailability()[pri:0, instance:com.flipkart.test.AddToCartTest@4b9e13df]" name="verifySearchBtnAvailability" duration-ms="63" started-at="2021-02-24T13:43:11Z" finished-at="2021-02-24T13:43:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifySearchBtnAvailability -->
+        <test-method status="PASS" signature="verifyCartButtonDisplayed()[pri:0, instance:com.flipkart.test.AddToCartTest@4b9e13df]" name="verifyCartButtonDisplayed" duration-ms="48" started-at="2021-02-24T13:43:11Z" finished-at="2021-02-24T13:43:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyCartButtonDisplayed -->
+        <test-method status="PASS" signature="verifyProductSearch(java.lang.String)[pri:0, instance:com.flipkart.test.AddToCartTest@4b9e13df]" name="verifyProductSearch" duration-ms="3664" started-at="2021-02-24T13:43:16Z" finished-at="2021-02-24T13:43:20Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[A Practitioners Guide to Test Automation Using SELENIUM]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyProductSearch -->
+        <test-method status="PASS" signature="verifyProductDisplayed(java.lang.String)[pri:0, instance:com.flipkart.test.AddToCartTest@4b9e13df]" name="verifyProductDisplayed" duration-ms="10232" started-at="2021-02-24T13:43:20Z" finished-at="2021-02-24T13:43:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[500035]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyProductDisplayed -->
+        <test-method status="PASS" signature="verifyAddToCartBtnDisplayed()[pri:0, instance:com.flipkart.test.AddToCartTest@4b9e13df]" name="verifyAddToCartBtnDisplayed" duration-ms="863" started-at="2021-02-24T13:43:30Z" finished-at="2021-02-24T13:43:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAddToCartBtnDisplayed -->
+        <test-method status="PASS" signature="verifyBuyNowBtnDisplayed()[pri:0, instance:com.flipkart.test.AddToCartTest@4b9e13df]" name="verifyBuyNowBtnDisplayed" duration-ms="70" started-at="2021-02-24T13:43:31Z" finished-at="2021-02-24T13:43:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyBuyNowBtnDisplayed -->
+        <test-method status="PASS" signature="verifyAddToCart()[pri:0, instance:com.flipkart.test.AddToCartTest@4b9e13df]" name="verifyAddToCart" duration-ms="130" started-at="2021-02-24T13:43:31Z" finished-at="2021-02-24T13:43:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAddToCart -->
+        <test-method status="PASS" signature="verifyRemoveFromCart()[pri:0, instance:com.flipkart.test.AddToCartTest@4b9e13df]" name="verifyRemoveFromCart" duration-ms="5522" started-at="2021-02-24T13:43:31Z" finished-at="2021-02-24T13:43:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyRemoveFromCart -->
+        <test-method status="PASS" signature="verifylogout()[pri:0, instance:com.flipkart.test.AddToCartTest@4b9e13df]" name="verifylogout" duration-ms="3277" started-at="2021-02-24T13:43:36Z" finished-at="2021-02-24T13:43:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifylogout -->
-        <test-method status="PASS" signature="verifyCloseBrowser()[pri:0, instance:com.flipkart.test.LoginTest@36d4b5c]" name="verifyCloseBrowser" duration-ms="54" started-at="2021-02-11T18:32:50Z" finished-at="2021-02-11T18:32:50Z">
+        <test-method status="PASS" signature="verifyCloseBrowser()[pri:0, instance:com.flipkart.test.AddToCartTest@4b9e13df]" name="verifyCloseBrowser" duration-ms="668" started-at="2021-02-24T13:43:40Z" finished-at="2021-02-24T13:43:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyCloseBrowser -->
+        <test-method status="PASS" signature="quit()[pri:0, instance:com.flipkart.test.AddToCartTest@4b9e13df]" name="quit" duration-ms="1091" started-at="2021-02-24T13:43:40Z" finished-at="2021-02-24T13:43:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- quit -->
+      </class> <!-- com.flipkart.test.AddToCartTest -->
+      <class name="com.flipkart.test.LoginTest">
+        <test-method status="PASS" signature="dependencies()[pri:0, instance:com.flipkart.test.LoginTest@cb5822]" name="dependencies" is-config="true" duration-ms="6" started-at="2021-02-24T13:42:58Z" finished-at="2021-02-24T13:42:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- dependencies -->
+        <test-method status="PASS" signature="verifyUrl()[pri:0, instance:com.flipkart.test.LoginTest@cb5822]" name="verifyUrl" duration-ms="11990" started-at="2021-02-24T13:42:58Z" finished-at="2021-02-24T13:43:10Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyUrl -->
+        <test-method status="PASS" signature="validlogin(java.lang.String, java.lang.String)[pri:0, instance:com.flipkart.test.LoginTest@cb5822]" name="validlogin" duration-ms="4922" started-at="2021-02-24T13:43:11Z" finished-at="2021-02-24T13:43:16Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[9866825999]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Cn012345678]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validlogin -->
       </class> <!-- com.flipkart.test.LoginTest -->
     </test> <!-- Test2 -->
   </suite> <!-- Suite -->

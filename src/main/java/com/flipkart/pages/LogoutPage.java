@@ -20,7 +20,6 @@ public class LogoutPage extends BasePage {
 	WebElement logout;
 
 	public LogoutPage() {
-		System.out.println("Inside logout page constructor");
 		PageFactory.initElements(DriverFactory.getDriver(), this);
 	}
 
